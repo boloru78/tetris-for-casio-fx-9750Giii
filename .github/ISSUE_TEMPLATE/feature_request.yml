@@ -1,0 +1,22 @@
+name: Proposer une idée
+description: Une nouvelle fonctionnalité ou une amélioration du jeu.
+title: "[Idée] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Votre idée
+      description: Décrivez ce que vous aimeriez voir dans le jeu.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Pourquoi ?
+      description: Quel problème cela résout-il, ou qu'est-ce que cela apporterait ?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Autres pistes envisagées
+      description: Facultatif.

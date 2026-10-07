@@ -1,0 +1,16 @@
+# Compilation (fxSDK et outils PC)
+/build/
+/build-fx/
+/build-cg/
+*.g1a
+*.bin
+*.elf
+
+# Python
+__pycache__/
+
+# Éditeurs et systèmes
+.vscode/
+.idea/
+*.swp
+.DS_Store

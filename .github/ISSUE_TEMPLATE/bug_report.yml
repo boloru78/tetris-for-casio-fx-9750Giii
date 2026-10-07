@@ -1,0 +1,65 @@
+name: Signaler un bug
+description: Le jeu plante, affiche quelque chose de faux ou ne se comporte pas comme prévu.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler un problème ! Plus la description
+        est précise, plus il sera facile de le corriger.
+  - type: textarea
+    id: description
+    attributes:
+      label: Que se passe-t-il ?
+      description: Décrivez le problème en quelques phrases.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Comment le reproduire ?
+      description: Les touches appuyées, dans l'ordre, depuis le menu du jeu.
+      placeholder: |
+        1. Nouvelle partie > niveau 5
+        2. Mettre une pièce en réserve avec OPTN
+        3. Appuyer sur MENU puis revenir dans le jeu
+        4. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Qu'attendiez-vous ?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version du jeu
+      description: Visible en haut à droite du menu principal (par exemple v1.0.0).
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: model
+    attributes:
+      label: Calculatrice
+      options:
+        - fx-9750GIII
+        - fx-9860GIII
+        - Graph 35+E II
+        - Autre (préciser ci-dessous)
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Version du système de la calculatrice
+      description: Affichée dans l'application SYSTEM, rubrique « Version ».
+      placeholder: "ex. 03.80"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Informations supplémentaires
+      description: Photo de l'écran, message d'erreur affiché, etc.

@@ -1,0 +1,20 @@
+# Images du jeu, dessinées en texte : « # » = noir, « . » = blanc.
+#
+# Chaque image commence par une ligne « @ nom » suivie de ses lignes de
+# pixels (32 pixels de large au plus). Une ligne vide termine l'image.
+# Dans le code C, l'image « logo » devient SPR_LOGO.
+#
+# Les pièces du jeu ne sont pas des images : elles sont dessinées case par
+# case (3×3 pixels) dans src/render.c.
+#
+# Après modification, régénérer src/assets.c avec : make assets
+
+# Logo du menu principal : une pièce T, à côté du titre.
+@ logo
+....###....
+....###....
+....###....
+...........
+###.###.###
+###.###.###
+###.###.###

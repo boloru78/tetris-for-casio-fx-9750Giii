@@ -1,0 +1,67 @@
+# Parcours de tous les écrans et boîtes de dialogue. Lancé par make check,
+# il échoue si un texte sort de l'écran. Syntaxe : sim/README.md
+SEED:4
+DELAY:6
+
+# Aide complète depuis le menu principal.
+DOWN DOWN EXE
+RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT LEFT RIGHT
+EXE                        # EXE sur la dernière page : retour au menu
+
+# Meilleurs scores vides, effacement refusé.
+DOWN EXE
+F6 EXE                     # « Non » est présélectionné
+EXIT
+
+# Choix du niveau : jusqu'au bout dans les deux sens, puis niveau 2.
+EXE
+RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT
+RIGHT RIGHT RIGHT RIGHT
+LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT
+LEFT LEFT
+RIGHT EXE
+WAIT:90                    # compte à rebours
+
+# Toutes les commandes de la partie.
+SHIFT WAIT:2 ALPHA WAIT:2 LEFT WAIT:2 RIGHT WAIT:2 OPTN WAIT:2
+F1 WAIT:2 UP WAIT:30
++RIGHT WAIT:30 -RIGHT +DOWN WAIT:30 -DOWN EXE WAIT:30
+
+# Pause, aide depuis la pause, puis reprise.
+EXIT
+DOWN DOWN EXE EXIT         # Aide, retour à la pause
+UP UP EXE                  # Reprendre
+WAIT:90
+
+# Menu Casio pendant la partie : la partie reprend en pause.
+MENU
+DOWN EXE                   # Recommencer
+EXE                        # « Non »
+EXE UP EXE                 # Recommencer > « Oui, abandonner »
+WAIT:90
+
+# On laisse tomber les pièces jusqu'à la fin de la partie (les attentes
+# en trop sont sans effet dans le bilan), puis on rejoue.
++DOWN WAIT:3000 -DOWN
+EXE                        # Rejouer
+WAIT:90
+EXIT DOWN DOWN DOWN EXE    # pause > Menu principal (la partie est gardée)
+
+# Menu principal avec « Reprendre la partie ».
+DOWN EXE                   # Nouvelle partie
+EXE                        # il faut d'abord abandonner l'autre partie
+EXE                        # « Non »
+EXIT
+EXE                        # Reprendre la partie
+WAIT:30 EXIT               # pause pendant le compte à rebours
+EXE WAIT:90                # Reprendre
++DOWN WAIT:3000 -DOWN
+DOWN EXE                   # bilan > Menu principal
+
+# Meilleurs scores remplis, puis effacés.
+DOWN EXE
+F6 UP EXE
+EXIT
+
+# Quitter.
+DOWN DOWN DOWN EXE
