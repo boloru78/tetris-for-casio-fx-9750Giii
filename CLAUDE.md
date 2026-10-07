@@ -112,14 +112,21 @@ jamais y toucher.
 
 ## État actuel (07/10/2026)
 
-- Le dépôt GitHub n'est pas encore créé.
-- L'add-in n'a pas encore été compilé (la CI le fera au premier push) ni
-  testé sur la calculatrice.
+- Le dépôt GitHub est créé et public, mais **sans le fichier de la CI**
+  (`.github/workflows/build.yml`, gardé sur le Mac, non suivi par Git) : le
+  jeton de `gh` n'a pas la permission `workflow`, et GitHub refuse alors
+  l'envoi de ce fichier. L'add-in n'a donc pas encore été compilé.
+- `platform_gint.c` a été vérifié avec les vrais en-têtes de gint 2.11
+  (`clang -fsyntax-only`) : seule différence, `GINT_CALL()` avec un `size_t`,
+  qui ne passe que sur un Mac 64 bits (même code que le démineur).
+- Pas encore testé sur la calculatrice.
 
 ## Prochaines étapes
 
-1. Créer le dépôt GitHub `tetris-for-casio-fx-9750Giii`, pousser, vérifier
-   que la CI compile `platform_gint.c` (première compilation avec gint).
+1. Quand l'auteur est devant son ordinateur : `gh auth refresh -h github.com
+   -s workflow` (code à valider dans le navigateur, valable 15 minutes), puis
+   `git add .github/workflows/build.yml`, commit et push. Vérifier que la CI
+   compile `Tetris.g1a` (première compilation avec gint).
 2. Copier `Tetris.g1a` sur la calculatrice et tester en priorité :
    - la fluidité et la réactivité des touches (régler `DAS_FRAMES` et
      `ARR_FRAMES` dans `src/tetris.h` si besoin) ;
